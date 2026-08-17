@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OrderFlow Pro - Real Delta | EUR/USD</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+    <style>
+      .ad-box { width: 100%; background: #111; border-top: 1px solid #222; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; min-height: 120px; }
+      .privacy-footer { width:100%; background:#0a0a0a; color:#666; text-align:center; padding:12px 10px; font-size:11px; border-top:1px solid #222; line-height:1.5; }
+      .privacy-footer a { color:#888; text-decoration:underline; margin:0 5px; }
+    </style>
+    <script>
+      (function(){
+        const OrigWS = window.WebSocket;
+        window.WebSocket = function(url, protocols){
+          if(typeof url === 'string' && url.startsWith('ws://')){
+            url = url.replace('ws://','wss://');
+          }
+          return new OrigWS(url, protocols);
+        };
+        window.WebSocket.prototype = OrigWS.prototype;
+      })();
+      window.collectAITick16 = window.collectAITick16 || function(){};
+      window.part16AIReady = true;
+    </script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo"><span class="logo-icon">📊</span><span class="logo-text">OrderFlow Pro EUR/USD</span></div>
+        <div class="topbar-right">
+            <div class="price-display"><span class="price-value" id="price">---</span></div>
+            <div class="status-display"><span class="status-text" id="connectionStatus">Connecting...</span></div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="chart-wrapper">
+            <div id="chart"></div>
+        </div>
+        <div class="dashboard-wrapper">
+            <div id="aiEnginePanel"></div>
+            <div class="ad-box" id="ad-native">
+                <script type="text/javascript">
+                  atOptions = {'key' : '30756919','format' : 'iframe','height' : 250,'width' : 300,'params' : {}};
+                </script>
+                <script type="text/javascript" src="https://www.highperformanceformat.com/30756919/invoke.js"></script>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bottom-bar"><div class="quick-stats" id="part21Panel">OrderFlow Pro - Real Delta</div></footer>
+    
+    <div class="privacy-footer">
+      OrderFlow Pro - Real-time EUR/USD Order Flow Analysis Tool. Educational purpose only, not financial advice.<br>
+      <a href="#" onclick="alert('Privacy Policy: We do not collect personal data.'); return false;">Privacy Policy</a> |
+      <a href="#" onclick="alert('Contact: Uses Binance public data.'); return false;">Contact</a> |
+      <a href="#" onclick="alert('Disclaimer: Trading involves risk.'); return false;">Disclaimer</a>
+      <br>© 2026 OrderFlow Pro
+    </div>
+
+    <script type="text/javascript" src="https://www.highperformanceformat.com/30756918/invoke.js"></script>
+
+    <script src="config.js"></script>
+    <script src="part16.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+      setTimeout(()=>{
+        const statusEl = document.getElementById('connectionStatus');
+        let retry = 0;
+        const checkConn = setInterval(()=>{
+          if(statusEl && statusEl.textContent.includes('Connecting') && retry < 5){
+            retry++;
+            if(window.initConnection) window.initConnection();
+            if(window.connectWS) window.connectWS();
+          } else {
+            clearInterval(checkConn);
+          }
+        }, 3000);
+      }, 2000);
+    </script>
+</body>
+</html>

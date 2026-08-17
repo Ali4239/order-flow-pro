@@ -1,0 +1,791 @@
+/* =========================================================
+   ORDERFLOW PRO — COMPLETE STYLES
+   VERSION: 1.0.0
+   ========================================================= */
+
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #0a0a0a;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    user-select: none;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 16px;
+    background: #0d0d0d;
+    border-bottom: 1px solid #222;
+    flex-shrink: 0;
+    height: 44px;
+    min-height: 44px;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 20px;
+}
+
+.logo-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00ff88;
+    letter-spacing: 0.5px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.price-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    min-width: 80px;
+    text-align: right;
+}
+
+.status-display {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #ff4444;
+    transition: background 0.3s;
+}
+
+.status-dot.live {
+    background: #00ff88;
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+.status-dot.error {
+    background: #ff4444;
+    box-shadow: 0 0 8px rgba(255, 68, 68, 0.3);
+}
+
+.status-text {
+    font-size: 11px;
+    color: #666;
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    gap: 0;
+    min-height: 0;
+}
+
+/* =========================================================
+   CHART WRAPPER
+   ========================================================= */
+
+.chart-wrapper {
+    flex: 1;
+    position: relative;
+    background: #0a0a0a;
+    min-width: 0;
+}
+
+#chart {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* =========================================================
+   DASHBOARD WRAPPER (PART 16)
+   ========================================================= */
+
+.dashboard-wrapper {
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+    background: #0d0d0d;
+    border-left: 1px solid #1a1a1a;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 6px 8px;
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   PART 16 DASHBOARD — OVERRIDE INLINE STYLES
+   ========================================================= */
+
+#aiEnginePanel {
+    width: 100% !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    max-height: none !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    color: #ccc !important;
+    box-shadow: none !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    overflow: visible !important;
+}
+
+#aiEnginePanel > div {
+    background: transparent !important;
+    border: none !important;
+    padding: 2px 0 !important;
+}
+
+/* Dashboard title */
+#aiEnginePanel .dash-title {
+    font-size: 12px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    color: #00ff88 !important;
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+    margin-bottom: 4px !important;
+}
+
+/* Dashboard rows */
+#aiEnginePanel .dash-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 1px 0 !important;
+    border-bottom: 1px solid #111 !important;
+    font-size: 10px !important;
+}
+
+#aiEnginePanel .dash-row .label {
+    color: #888 !important;
+}
+
+#aiEnginePanel .dash-row .value {
+    font-weight: bold !important;
+    font-family: 'Courier New', monospace !important;
+}
+
+/* Section headers */
+#aiEnginePanel .section-title {
+    font-weight: bold !important;
+    color: #666 !important;
+    padding: 4px 0 2px 0 !important;
+    border-top: 1px solid #1a1a1a !important;
+    margin-top: 4px !important;
+    font-size: 9px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* =========================================================
+   PART 16 — COLOR CLASSES
+   ========================================================= */
+
+.color-call {
+    color: #00ff88 !important;
+}
+
+.color-put {
+    color: #ff4444 !important;
+}
+
+.color-wait {
+    color: #666 !important;
+}
+
+.color-win {
+    color: #00ff88 !important;
+}
+
+.color-loss {
+    color: #ff4444 !important;
+}
+
+.color-locked {
+    color: #ff6600 !important;
+}
+
+.color-caution {
+    color: #ffaa00 !important;
+}
+
+/* =========================================================
+   BOTTOM BAR (PART 21)
+   ========================================================= */
+
+.bottom-bar {
+    flex-shrink: 0;
+    background: #0d0d0d;
+    border-top: 1px solid #1a1a1a;
+    padding: 3px 12px;
+    height: 30px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-size: 10px;
+    color: #666;
+}
+
+.bottom-bar .quick-stats {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.bottom-bar .quick-stats .stat-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+}
+
+.bottom-bar .quick-stats .stat-item .stat-label {
+    color: #555;
+}
+
+.bottom-bar .quick-stats .stat-item .stat-value {
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.bottom-bar .quick-stats .stat-divider {
+    color: #222;
+}
+
+/* =========================================================
+   SIGNAL ALERT (PART 21)
+   ========================================================= */
+
+#part21Alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.93);
+    border-radius: 16px;
+    padding: 24px 48px;
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.95);
+    animation: part21Pulse 0.4s ease-in-out;
+    border: 2px solid #333;
+    min-width: 200px;
+}
+
+#part21Alert .alert-signal {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+#part21Alert .alert-text {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+#part21Alert .alert-score {
+    font-size: 16px;
+    color: #888;
+}
+
+#part21Alert .alert-time {
+    font-size: 11px;
+    color: #555;
+    margin-top: 6px;
+}
+
+#part21Alert .alert-close {
+    font-size: 11px;
+    color: #444;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#part21Alert .alert-close:hover {
+    color: #888;
+}
+
+@keyframes part21Pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   🔥 ADMIN PANEL — SECRET 5-TAP
+   ========================================================= */
+
+#adminPanel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    padding: 20px;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+#adminPanel .admin-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 60px rgba(0, 255, 136, 0.1);
+}
+
+#adminPanel .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+#adminPanel .admin-header .admin-title {
+    color: #00ff88;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#adminPanel .admin-header .admin-close {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 8px;
+    transition: color 0.2s;
+}
+
+#adminPanel .admin-header .admin-close:hover {
+    color: #fff;
+}
+
+#adminPanel .admin-label {
+    display: block;
+    color: #888;
+    font-size: 11px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#adminPanel .admin-input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #0d0d0d;
+    color: #00ff88;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#adminPanel .admin-input:focus {
+    outline: none;
+    border-color: #00ff88;
+}
+
+#adminPanel .admin-select {
+    width: 100%;
+    padding: 10px 12px;
+    background: #0d0d0d;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#adminPanel .admin-select:focus {
+    outline: none;
+    border-color: #00ff88;
+}
+
+#adminPanel .admin-select option {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+#adminPanel .admin-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 12px;
+}
+
+#adminPanel .admin-btn:hover {
+    background: #00dd77;
+    transform: scale(1.01);
+}
+
+#adminPanel .admin-btn-secondary {
+    width: 100%;
+    padding: 8px;
+    background: #333;
+    color: #888;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+}
+
+#adminPanel .admin-btn-secondary:hover {
+    background: #444;
+    color: #fff;
+}
+
+#adminPanel .admin-status-box {
+    margin-top: 12px;
+    padding: 12px;
+    background: #0d0d0d;
+    border-radius: 8px;
+    border: 1px solid #1a1a1a;
+}
+
+#adminPanel .admin-status-box .status-label {
+    color: #555;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#adminPanel .admin-status-box .status-value {
+    color: #00ff88;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+#adminPanel .admin-status-box .status-price {
+    color: #888;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+#adminPanel .admin-row {
+    margin-bottom: 14px;
+}
+
+#adminPanel .admin-row:last-child {
+    margin-bottom: 0;
+}
+
+#adminPanel .admin-inline-btn {
+    background: #222;
+    color: #888;
+    border: 1px solid #333;
+    padding: 4px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s;
+    margin-top: 4px;
+}
+
+#adminPanel .admin-inline-btn:hover {
+    border-color: #555;
+    color: #fff;
+}
+
+#adminPanel .admin-key-status {
+    color: #00ff88;
+    font-size: 11px;
+    margin-left: 8px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .dashboard-wrapper {
+        width: 220px;
+        min-width: 220px;
+        max-width: 220px;
+        padding: 4px 6px;
+    }
+
+    #aiEnginePanel {
+        font-size: 9px !important;
+    }
+
+    .topbar {
+        padding: 4px 12px;
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .price-value {
+        font-size: 14px;
+        min-width: 60px;
+    }
+
+    .bottom-bar {
+        height: 26px;
+        min-height: 26px;
+        font-size: 9px;
+        padding: 2px 10px;
+    }
+
+    .bottom-bar .quick-stats {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-wrapper {
+        width: 170px;
+        min-width: 170px;
+        max-width: 170px;
+        padding: 2px 4px;
+    }
+
+    #aiEnginePanel {
+        font-size: 8px !important;
+        line-height: 1.4 !important;
+    }
+
+    #aiEnginePanel .dash-title {
+        font-size: 10px !important;
+    }
+
+    .topbar {
+        padding: 2px 8px;
+        height: 36px;
+        min-height: 36px;
+    }
+
+    .logo-icon {
+        font-size: 16px;
+    }
+
+    .logo-text {
+        font-size: 12px;
+    }
+
+    .topbar-right {
+        gap: 10px;
+    }
+
+    .price-label {
+        display: none;
+    }
+
+    .price-value {
+        font-size: 12px;
+        min-width: 50px;
+    }
+
+    .status-text {
+        font-size: 9px;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .bottom-bar {
+        height: 24px;
+        min-height: 24px;
+        font-size: 8px;
+        padding: 1px 6px;
+    }
+
+    .bottom-bar .quick-stats {
+        gap: 6px;
+    }
+
+    .bottom-bar .quick-stats .stat-item {
+        font-size: 8px;
+    }
+
+    .bottom-bar .quick-stats .stat-divider {
+        display: none;
+    }
+
+    #part21Alert {
+        padding: 16px 24px;
+        min-width: 140px;
+    }
+
+    #part21Alert .alert-signal {
+        font-size: 32px;
+    }
+
+    #part21Alert .alert-text {
+        font-size: 22px;
+    }
+
+    #part21Alert .alert-score {
+        font-size: 13px;
+    }
+
+    #adminPanel .admin-container {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .dashboard-wrapper {
+        width: 140px;
+        min-width: 140px;
+        max-width: 140px;
+        padding: 1px 3px;
+    }
+
+    #aiEnginePanel {
+        font-size: 7px !important;
+        line-height: 1.3 !important;
+    }
+
+    .topbar {
+        padding: 1px 4px;
+        height: 32px;
+        min-height: 32px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .price-value {
+        font-size: 10px;
+        min-width: 40px;
+    }
+
+    .bottom-bar {
+        height: 20px;
+        min-height: 20px;
+        font-size: 7px;
+        padding: 1px 4px;
+    }
+
+    .bottom-bar .quick-stats .stat-item .stat-label {
+        display: none;
+    }
+
+    #adminPanel {
+        padding: 10px;
+    }
+
+    #adminPanel .admin-container {
+        padding: 12px;
+    }
+}
